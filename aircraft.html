@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Aircraft detailing Brisbane — Prestige is one of the only mobile aircraft detailers in North Brisbane. Private planes, helicopters, light aircraft.">
+<title>Aircraft Detailing | Prestige Car & Aircraft Detailing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{--red:#CC0000;--red-light:#E50000;--black:#0A0A0A;--dark:#111111;--dark2:#1A1A1A;--dark3:#222222;--white:#FFFFFF;--gold:#C9A84C;--font-display:'Bebas Neue',sans-serif;--font-body:'Outfit',sans-serif}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font-body);background:var(--black);color:var(--white);overflow-x:hidden}
+  ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--dark)}::-webkit-scrollbar-thumb{background:var(--red);border-radius:2px}
+  nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 40px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,10,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(204,0,0,0.2);transition:all 0.3s}
+  nav.scrolled{height:60px;border-bottom-color:rgba(204,0,0,0.4);box-shadow:0 4px 30px rgba(0,0,0,0.5)}
+  .nav-logo{display:flex;align-items:center;text-decoration:none}
+  .nav-logo img{height:52px;width:auto;display:block;transition:height 0.3s}
+  nav.scrolled .nav-logo img{height:42px}
+  .nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+  .nav-cta{background:var(--red);color:var(--white)!important;padding:10px 24px;border-radius:2px;font-weight:700;letter-spacing:1.5px;text-decoration:none;font-size:13px;text-transform:uppercase;transition:background 0.2s}
+  .nav-cta:hover{background:var(--red-light)}
+  .nav-dropdown{position:relative}
+  .nav-dropdown-toggle{cursor:pointer;display:flex;flex-direction:column;gap:5px;padding:4px;user-select:none}.nav-dropdown-toggle span{display:block;width:22px;height:2px;background:rgba(255,255,255,0.75);border-radius:1px;transition:background 0.2s}
+  .nav-dropdown:hover .nav-dropdown-toggle span,.nav-dropdown.open .nav-dropdown-toggle span{background:var(--white)}
+  .nav-dropdown-menu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--dark);border:1px solid rgba(204,0,0,0.25);border-top:2px solid var(--red);min-width:200px;padding:8px 0;opacity:0;pointer-events:none;transition:opacity 0.2s;box-shadow:0 20px 60px rgba(0,0,0,0.5)}.nav-dropdown-menu::before{content:'';position:absolute;top:-8px;left:0;right:0;height:8px}
+  .nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown.open .nav-dropdown-menu{opacity:1;pointer-events:all}
+  .nav-dropdown-menu a{display:block;padding:11px 20px;font-size:12px;color:rgba(255,255,255,0.65);text-decoration:none;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;transition:all 0.15s}
+  .nav-dropdown-menu a:hover{color:var(--white);background:rgba(204,0,0,0.08);padding-left:26px}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+  .hamburger span{display:block;width:24px;height:2px;background:var(--white);transition:all 0.3s}
+  .mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;background:var(--dark);padding:24px 40px;z-index:999;border-bottom:1px solid rgba(204,0,0,0.3);flex-direction:column;gap:0}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:15px;font-weight:500;letter-spacing:1px;text-transform:uppercase;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.06);transition:color 0.2s}
+  .mobile-menu a:hover{color:var(--red)}
+  .mobile-menu .mobile-cta{margin-top:16px;background:var(--red);color:var(--white)!important;text-align:center;padding:14px!important;border-radius:2px}
+  .page-header{padding-top:72px;position:relative;height:420px;display:flex;align-items:center;overflow:hidden}
+  .page-header-bg{position:absolute;inset:0;background:linear-gradient(105deg,rgba(10,10,10,0.95) 0%,rgba(10,10,10,0.75) 60%,rgba(10,10,10,0.5) 100%),url('https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=1800&q=80') center/cover no-repeat}
+  .page-header-bg::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--red)}
+  .page-header-bg::after{content:'';position:absolute;bottom:0;left:0;right:0;height:180px;background:linear-gradient(to top,var(--black),transparent)}
+  .page-header-content{position:relative;z-index:2;padding:0 80px}
+  .page-eyebrow{font-size:12px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:16px}
+  .page-title{font-family:var(--font-display);font-size:clamp(52px,7vw,88px);line-height:0.95;color:var(--white)}
+  .page-title em{font-style:normal;color:var(--red)}
+  .section-label{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:16px}
+  .section-label::before{content:'';display:block;width:24px;height:1px;background:var(--red)}
+  .section-title{font-family:var(--font-display);font-size:clamp(36px,4vw,56px);letter-spacing:2px;line-height:1;color:var(--white);margin-bottom:16px}
+  .section-sub{font-size:15px;color:rgba(255,255,255,0.5);line-height:1.7;max-width:560px}
+  .aircraft-section{padding:100px 80px;background:var(--dark2);position:relative;overflow:hidden}
+  .aircraft-section::before{content:'AIRCRAFT';position:absolute;right:-40px;top:50%;transform:translateY(-50%) rotate(90deg);font-family:var(--font-display);font-size:120px;letter-spacing:10px;color:rgba(255,255,255,0.02);white-space:nowrap;pointer-events:none}
+  .aircraft-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+  .aircraft-visual{position:relative;border-radius:2px;overflow:hidden}
+  .aircraft-visual img{width:100%;height:480px;object-fit:cover;display:block;filter:brightness(0.8) saturate(0.9);transition:filter 0.4s}
+  .aircraft-visual:hover img{filter:brightness(0.9) saturate(1)}
+  .aircraft-visual::after{content:'';position:absolute;inset:0;border:1px solid rgba(204,0,0,0.3);pointer-events:none}
+  .aircraft-badge{position:absolute;top:24px;left:24px;background:var(--red);color:var(--white);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;padding:8px 16px}
+  .aircraft-features{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:40px}
+  .aircraft-feat{background:var(--dark3);padding:20px 24px;font-size:13px;font-weight:500;color:rgba(255,255,255,0.7);border-left:2px solid var(--red)}
+  .btn-primary{display:inline-block;background:var(--red);color:var(--white);padding:16px 40px;border-radius:2px;font-size:14px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;transition:background 0.2s;margin-bottom:40px}
+  .btn-primary:hover{background:var(--red-light)}
+  .why-section{padding:80px;background:var(--black)}
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:56px}
+  .why-card{background:var(--dark2);padding:36px 32px;border-left:2px solid var(--red)}
+  .why-num{font-family:var(--font-display);font-size:48px;color:var(--red);line-height:1;margin-bottom:16px}
+  .why-title{font-size:16px;font-weight:700;margin-bottom:10px}
+  .why-desc{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.7}
+  .cta-band{background:var(--dark2);padding:80px;text-align:center}
+  .cta-band h2{font-family:var(--font-display);font-size:clamp(40px,5vw,64px);margin-bottom:20px}
+  .cta-band h2 em{font-style:normal;color:var(--red)}
+  .cta-band p{color:rgba(255,255,255,0.55);font-size:16px;margin-bottom:36px}
+  footer{background:var(--dark);border-top:1px solid rgba(204,0,0,0.2);padding:60px 80px 32px}
+  .footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:48px}
+  .footer-brand-desc{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.7;max-width:280px;margin-top:16px;margin-bottom:20px}
+  .social-links{display:flex;gap:12px}
+  .social-link{width:36px;height:36px;border:1px solid rgba(255,255,255,0.15);border-radius:2px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);text-decoration:none;font-size:12px;font-weight:700;transition:all 0.2s}
+  .social-link:hover{border-color:var(--red);color:var(--red)}
+  .footer-col-title{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:20px}
+  .footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+  .footer-links a{font-size:13px;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s}
+  .footer-links a:hover{color:var(--white)}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+  .footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
+  .footer-tagline{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(204,0,0,0.6)}
+  @media(max-width:1024px){nav{padding:0 32px}.page-header-content,.aircraft-section,.why-section,.cta-band{padding-left:40px;padding-right:40px}.aircraft-inner{grid-template-columns:1fr;gap:40px}.why-grid{grid-template-columns:1fr 1fr}.footer-inner{grid-template-columns:1fr 1fr;gap:40px}footer{padding-left:40px;padding-right:40px}}
+  @media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}.hamburger{display:flex}.page-header{height:300px}.page-header-content,.aircraft-section,.why-section,.cta-band{padding-left:20px;padding-right:20px}.why-grid{grid-template-columns:1fr}.footer-inner{grid-template-columns:1fr;gap:32px}footer{padding-left:20px;padding-right:20px}.footer-bottom{flex-direction:column;text-align:center}}
+</style>
+</head>
+<body>
+<nav id="navbar">
+  <a href="index.html" class="nav-logo"><img src="images/logo.jpg" alt="Prestige Car & Aircraft Detailing"></a>
+  <ul class="nav-links">
+    <li class="nav-dropdown">
+      <span class="nav-dropdown-toggle"><span></span><span></span><span></span></span>
+      <div class="nav-dropdown-menu">
+        <a href="about-us.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="aircraft.html">Aircraft</a>
+        <a href="skygloss.html" style="color:rgba(126,184,255,0.85)">SkyGloss Fusion ✦</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="gallery.html">Past Work</a>
+        <a href="faq.html">FAQ</a>
+        <a href="blog.html">Blog</a>
+      </div>
+    </li>
+    <li><a href="index.html#contact" class="nav-cta">Book Now</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="about-us.html" onclick="toggleMenu()">About Us</a>
+  <a href="services.html" onclick="toggleMenu()">Services</a>
+  <a href="aircraft.html" onclick="toggleMenu()">Aircraft</a>
+  <a href="skygloss.html" onclick="toggleMenu()" style="color:rgba(126,184,255,0.85)">SkyGloss Fusion ✦</a>
+  <a href="reviews.html" onclick="toggleMenu()">Reviews</a>
+  <a href="gallery.html" onclick="toggleMenu()">Past Work</a>
+  <a href="faq.html" onclick="toggleMenu()">FAQ</a>
+  <a href="blog.html" onclick="toggleMenu()">Blog</a>
+  <a href="index.html#contact" class="mobile-cta" onclick="toggleMenu()">Book Now</a>
+</div>
+<div class="page-header">
+  <div class="page-header-bg"></div>
+  <div class="page-header-content">
+    <div class="page-eyebrow">Specialist Service — Brisbane</div>
+    <h1 class="page-title">Aircraft<br><em>Detailing</em></h1>
+  </div>
+</div>
+<section class="aircraft-section">
+  <div class="aircraft-inner">
+    <div class="aircraft-visual">
+      <img src="https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=900&q=80" alt="Aircraft Detailing Brisbane">
+      <div class="aircraft-badge">Brisbane's Only Mobile Aircraft Detailer</div>
+    </div>
+    <div>
+      <div class="section-label">Specialist Service</div>
+      <h2 class="section-title">Precision Care<br>Above the Ground</h2>
+      <p class="section-sub" style="margin-bottom:24px">Prestige is one of the only mobile detailing services in Brisbane offering specialist aircraft detailing. Whether it's a private plane, helicopter, or light aircraft — we bring the same precision and premium products we use on luxury cars directly to your hangar or airfield.</p>
+      <p class="section-sub" style="margin-bottom:36px">We use only aviation-safe products, and our mobile setup means zero inconvenience — we come to you fully equipped.</p>
+      <a href="index.html#contact" class="btn-primary">Enquire About Aircraft →</a>
+      <div class="aircraft-features">
+        <div class="aircraft-feat">Private Planes</div>
+        <div class="aircraft-feat">Helicopters</div>
+        <div class="aircraft-feat">Light Aircraft</div>
+        <div class="aircraft-feat">Specialist Products</div>
+        <div class="aircraft-feat">Mobile — We Come to You</div>
+        <div class="aircraft-feat">Aviation-Safe Solutions</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="why-section">
+  <div class="section-label">Why Choose Prestige</div>
+  <h2 class="section-title">The Prestige Difference</h2>
+  <div class="why-grid">
+    <div class="why-card"><div class="why-num">01</div><div class="why-title">Aviation-Safe Products</div><div class="why-desc">We only use products that are safe for aircraft surfaces — no risk to paintwork, seals, or composites.</div></div>
+    <div class="why-card"><div class="why-num">02</div><div class="why-title">We Come to Your Hangar</div><div class="why-desc">Fully mobile setup. No need to move the aircraft — we arrive equipped and ready at your airfield.</div></div>
+    <div class="why-card"><div class="why-num">03</div><div class="why-title">Same Prestige Standard</div><div class="why-desc">The same meticulous attention to detail we apply to luxury cars, applied to your aircraft. Nothing less.</div></div>
+  </div>
+</section>
+<div class="cta-band">
+  <h2>Ready to Book Your<br><em>Aircraft Detail?</em></h2>
+  <p>Get in touch to discuss your aircraft and we'll provide a tailored quote.</p>
+  <a href="index.html#contact" class="btn-primary">Enquire Now →</a>
+</div>
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="index.html" class="nav-logo"><img src="images/logo.jpg" alt="Prestige" style="height:64px"></a>
+      <p class="footer-brand-desc">Premium mobile detailing for cars and aircraft across North Brisbane. 6+ years experience. We come to you.</p>
+      <div class="social-links">
+        <a href="https://www.facebook.com/Prestigecardetailingqld" class="social-link" target="_blank">f</a>
+        <a href="https://www.instagram.com/prestigedetailingqld/" class="social-link" target="_blank">in</a>
+      </div>
+    </div>
+    <div><div class="footer-col-title">Services</div><ul class="footer-links"><li><a href="services.html">Interior & Exterior</a></li><li><a href="services.html">Gold & Platinum</a></li><li><a href="services.html">Paint Correction</a></li><li><a href="services.html">Ceramic Coating</a></li><li><a href="services.html">SkyGloss Fusion</a></li><li><a href="aircraft.html">Aircraft Detailing</a></li></ul></div>
+    <div><div class="footer-col-title">Pages</div><ul class="footer-links"><li><a href="about-us.html">About Us</a></li><li><a href="reviews.html">Reviews</a></li><li><a href="gallery.html">Past Work</a></li><li><a href="faq.html">FAQ</a></li><li><a href="blog.html">Blog</a></li><li><a href="skygloss.html">SkyGloss Fusion</a></li><li><a href="index.html#contact">Contact</a></li></ul></div>
+    <div><div class="footer-col-title">Contact</div><ul class="footer-links"><li><a href="tel:+61437477199">+61 437 477 199</a></li><li><a href="mailto:prestigecaraircraftdetailing@gmail.com">Email Us</a></li><li><a href="#">Mon–Sat 9am–6pm</a></li><li><a href="#">North Brisbane, QLD</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Prestige Car & Aircraft Detailing. All rights reserved.</div>
+    <div class="footer-tagline">A Prestige Service Everytime</div>
+  </div>
+</footer>
+<script>
+  window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>30)});
+  function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open')}
+</script>
+</body>
+</html>

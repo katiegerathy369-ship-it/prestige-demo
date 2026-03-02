@@ -1,0 +1,81 @@
+# =============================================================================
+# ROOT .htaccess FIX — public_html/.htaccess
+#
+# INSTRUCTIONS:
+#   1. Open public_html/.htaccess in GoDaddy's File Manager (or via FTP/cPanel)
+#   2. Find the line that says:
+#        RewriteEngine On
+#   3. Immediately AFTER that line, add the block marked === ADD THIS BLOCK ===
+#   4. Save the file.
+#
+# Your file will then look like the COMPLETE EXAMPLE at the bottom of this doc.
+# =============================================================================
+
+
+# === ADD THIS BLOCK immediately after "RewriteEngine On" ===
+
+    # ------------------------------------------------------------------
+    # BYPASS: /new/ static HTML site — skip ALL Laravel rewrite rules
+    # This must come BEFORE the main "RewriteRule ^ index.php" line
+    # ------------------------------------------------------------------
+    RewriteCond %{REQUEST_URI} ^/new(/|$) [NC]
+    RewriteRule ^ - [L]
+
+# === END OF BLOCK ===
+
+
+
+
+# =============================================================================
+# COMPLETE EXAMPLE — Standard Laravel 5.4 .htaccess WITH the bypass added
+# (Use this as a reference or replace your root .htaccess entirely if it
+#  matches this pattern)
+# =============================================================================
+
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # ------------------------------------------------------------------
+    # BYPASS: /new/ static HTML site — skip ALL Laravel rewrite rules
+    # ------------------------------------------------------------------
+    RewriteCond %{REQUEST_URI} ^/new(/|$) [NC]
+    RewriteRule ^ - [L]
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Send Requests To Front Controller (Laravel's entry point)
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+
+</IfModule>
+
+
+# =============================================================================
+# WHY THIS FIX WORKS
+#
+# The root .htaccess without the fix:
+#   • Laravel's RewriteEngine catches everything not already a real file/folder
+#   • The /new/ directory itself IS a real folder, so directory requests should
+#     pass through — but without DirectoryIndex index.html in /new/.htaccess,
+#     Apache has no default file to serve, so it falls through to Laravel → 404
+#   • Some .html files may also be caught by extra rules in custom Laravel
+#     setups or GoDaddy server-level configs
+#
+# With the bypass block added:
+#   • Any URL starting with /new/ or /new is immediately exited ([L]) with
+#     no rewriting — Apache handles it natively as a static file server
+#   • The /new/.htaccess then takes over with DirectoryIndex index.html
+#   • Result: /new → index.html, /new/skygloss.html → skygloss page, etc.
+# =============================================================================

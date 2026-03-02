@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Prestige detailing services — Interior & Exterior, Paint Correction, Ceramic Coating, SkyGloss Fusion and more. North Brisbane mobile detailing.">
+<title>Services | Prestige Car & Aircraft Detailing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --red:#CC0000;--red-light:#E50000;--black:#0A0A0A;--dark:#111111;--dark2:#1A1A1A;--dark3:#222222;--white:#FFFFFF;--gold:#C9A84C;--font-display:'Bebas Neue',sans-serif;--font-body:'Outfit',sans-serif; }
+  html { scroll-behavior: smooth; }
+  body { font-family:var(--font-body);background:var(--black);color:var(--white);overflow-x:hidden; }
+  ::-webkit-scrollbar{width:4px} ::-webkit-scrollbar-track{background:var(--dark)} ::-webkit-scrollbar-thumb{background:var(--red);border-radius:2px}
+  nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 40px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,10,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(204,0,0,0.2);transition:all 0.3s}
+  nav.scrolled{height:60px;border-bottom-color:rgba(204,0,0,0.4);box-shadow:0 4px 30px rgba(0,0,0,0.5)}
+  .nav-logo{display:flex;align-items:center;text-decoration:none}
+  .nav-logo img{height:52px;width:auto;display:block;transition:height 0.3s}
+  nav.scrolled .nav-logo img{height:42px}
+  .nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+  .nav-cta{background:var(--red);color:var(--white)!important;padding:10px 24px;border-radius:2px;font-weight:700;letter-spacing:1.5px;text-decoration:none;font-size:13px;text-transform:uppercase;transition:background 0.2s}
+  .nav-cta:hover{background:var(--red-light)}
+  .nav-dropdown{position:relative}
+  .nav-dropdown-toggle{cursor:pointer;display:flex;flex-direction:column;gap:5px;padding:4px;user-select:none}.nav-dropdown-toggle span{display:block;width:22px;height:2px;background:rgba(255,255,255,0.75);border-radius:1px;transition:background 0.2s}
+  .nav-dropdown:hover .nav-dropdown-toggle span,.nav-dropdown.open .nav-dropdown-toggle span{background:var(--white)}
+  .nav-dropdown-menu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--dark);border:1px solid rgba(204,0,0,0.25);border-top:2px solid var(--red);min-width:200px;padding:8px 0;opacity:0;pointer-events:none;transition:opacity 0.2s;box-shadow:0 20px 60px rgba(0,0,0,0.5)}.nav-dropdown-menu::before{content:'';position:absolute;top:-8px;left:0;right:0;height:8px}
+  .nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown.open .nav-dropdown-menu{opacity:1;pointer-events:all}
+  .nav-dropdown-menu a{display:block;padding:11px 20px;font-size:12px;color:rgba(255,255,255,0.65);text-decoration:none;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;transition:all 0.15s}
+  .nav-dropdown-menu a:hover{color:var(--white);background:rgba(204,0,0,0.08);padding-left:26px}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+  .hamburger span{display:block;width:24px;height:2px;background:var(--white);transition:all 0.3s}
+  .mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;background:var(--dark);padding:24px 40px;z-index:999;border-bottom:1px solid rgba(204,0,0,0.3);flex-direction:column;gap:0}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:15px;font-weight:500;letter-spacing:1px;text-transform:uppercase;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.06);transition:color 0.2s}
+  .mobile-menu a:hover{color:var(--red)}
+  .mobile-menu .mobile-cta{margin-top:16px;background:var(--red);color:var(--white)!important;text-align:center;padding:14px!important;border-radius:2px}
+  .page-header{padding-top:72px;position:relative;height:380px;display:flex;align-items:center;overflow:hidden}
+  .page-header-bg{position:absolute;inset:0;background:linear-gradient(105deg,rgba(10,10,10,0.95) 0%,rgba(10,10,10,0.75) 60%,rgba(10,10,10,0.5) 100%),url('https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=1800&q=80') center/cover no-repeat}
+  .page-header-bg::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--red)}
+  .page-header-bg::after{content:'';position:absolute;bottom:0;left:0;right:0;height:180px;background:linear-gradient(to top,var(--black),transparent)}
+  .page-header-content{position:relative;z-index:2;padding:0 80px}
+  .page-eyebrow{font-size:12px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:16px}
+  .page-title{font-family:var(--font-display);font-size:clamp(52px,7vw,88px);line-height:0.95;color:var(--white)}
+  .page-title em{font-style:normal;color:var(--red)}
+  .section-label{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:16px}
+  .section-label::before{content:'';display:block;width:24px;height:1px;background:var(--red)}
+  .section-title{font-family:var(--font-display);font-size:clamp(36px,4vw,56px);letter-spacing:2px;line-height:1;color:var(--white);margin-bottom:16px}
+  .section-sub{font-size:15px;color:rgba(255,255,255,0.5);line-height:1.7;max-width:560px}
+  .services-section{padding:100px 80px;background:var(--black)}
+  .services-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:60px;gap:40px;flex-wrap:wrap}
+  .services-tabs{display:flex;gap:2px;margin-bottom:48px;background:var(--dark2);padding:4px;border-radius:3px;width:fit-content}
+  .tab-btn{padding:10px 28px;font-family:var(--font-body);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;background:transparent;color:rgba(255,255,255,0.5);border:none;cursor:pointer;border-radius:2px;transition:all 0.2s}
+  .tab-btn.active{background:var(--red);color:var(--white)}
+  .service-panel{display:none}
+  .service-panel.active{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+  .service-card{background:var(--dark2);padding:36px 32px;position:relative;overflow:hidden;transition:all 0.3s}
+  .service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--red);transform:scaleX(0);transition:transform 0.3s;transform-origin:left}
+  .service-card:hover{background:var(--red);transform:translateY(-4px);box-shadow:0 16px 40px rgba(204,0,0,0.35)}
+  .service-card:hover::before{transform:scaleX(1);background:rgba(255,255,255,0.25)}.service-card:hover .service-name{color:var(--white)}.service-card:hover .service-desc{color:rgba(255,255,255,0.85)}.service-card:hover .service-link{color:var(--white)}.service-card:hover .service-price{color:rgba(255,255,255,0.9)}.service-card:hover .service-badge{background:var(--white);color:var(--red)}
+  
+  
+  
+  .service-icon{font-size:24px;margin-bottom:20px;display:block}
+  .service-name{font-size:16px;font-weight:700;color:var(--white);margin-bottom:10px}
+  .service-desc{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.65;margin-bottom:20px}
+  
+  .service-price{font-size:12px;font-weight:700;letter-spacing:1px;color:var(--gold);margin-bottom:20px;text-transform:uppercase}
+  
+  .service-link{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);cursor:pointer;transition:gap 0.2s}
+  
+  .service-link:hover{gap:14px}.service-badge{position:absolute;top:0;right:0;background:var(--red);color:var(--white);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:7px 16px;border-bottom-left-radius:2px}
+  .usp-section{background:var(--red);padding:48px 80px}
+  .usp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px}
+  .usp-item{display:flex;align-items:flex-start;gap:16px}
+  .usp-icon{font-size:28px;flex-shrink:0}
+  .usp-title{font-size:14px;font-weight:700;color:var(--white);margin-bottom:4px}
+  .usp-text{font-size:12px;color:rgba(255,255,255,0.75);line-height:1.6}
+  .cta-band{background:var(--dark2);padding:80px;text-align:center}
+  .cta-band h2{font-family:var(--font-display);font-size:clamp(40px,5vw,64px);margin-bottom:20px}
+  .cta-band h2 em{font-style:normal;color:var(--red)}
+  .cta-band p{color:rgba(255,255,255,0.55);font-size:16px;margin-bottom:36px}
+  .btn-primary{display:inline-block;background:var(--red);color:var(--white);padding:16px 40px;border-radius:2px;font-size:14px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;transition:background 0.2s}
+  .btn-primary:hover{background:var(--red-light)}
+  footer{background:var(--dark);border-top:1px solid rgba(204,0,0,0.2);padding:60px 80px 32px}
+  .footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:48px}
+  .footer-brand-desc{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.7;max-width:280px;margin-top:16px;margin-bottom:20px}
+  .social-links{display:flex;gap:12px}
+  .social-link{width:36px;height:36px;border:1px solid rgba(255,255,255,0.15);border-radius:2px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);text-decoration:none;font-size:12px;font-weight:700;transition:all 0.2s}
+  .social-link:hover{border-color:var(--red);color:var(--red)}
+  .footer-col-title{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:20px}
+  .footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+  .footer-links a{font-size:13px;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s}
+  .footer-links a:hover{color:var(--white)}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+  .footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
+  .footer-tagline{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(204,0,0,0.6)}
+  @media(max-width:1024px){nav{padding:0 32px}.page-header-content,.services-section,.usp-section,.cta-band{padding-left:40px;padding-right:40px}.service-panel.active{grid-template-columns:repeat(2,1fr)}.usp-grid{grid-template-columns:repeat(2,1fr)}.footer-inner{grid-template-columns:1fr 1fr;gap:40px}footer{padding-left:40px;padding-right:40px}}
+  @media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}.hamburger{display:flex}.page-header{height:300px}.page-header-content,.services-section,.usp-section,.cta-band{padding-left:20px;padding-right:20px}.service-panel.active{grid-template-columns:1fr}.usp-grid{grid-template-columns:1fr}.footer-inner{grid-template-columns:1fr;gap:32px}footer{padding-left:20px;padding-right:20px}.footer-bottom{flex-direction:column;text-align:center}}
+</style>
+</head>
+<body>
+<nav id="navbar">
+  <a href="index.html" class="nav-logo"><img src="images/logo.jpg" alt="Prestige Car & Aircraft Detailing"></a>
+  <ul class="nav-links">
+    <li class="nav-dropdown">
+      <span class="nav-dropdown-toggle"><span></span><span></span><span></span></span>
+      <div class="nav-dropdown-menu">
+        <a href="about-us.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="aircraft.html">Aircraft</a>
+        <a href="skygloss.html" style="color:rgba(126,184,255,0.85)">SkyGloss Fusion ✦</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="gallery.html">Past Work</a>
+        <a href="faq.html">FAQ</a>
+        <a href="blog.html">Blog</a>
+      </div>
+    </li>
+    <li><a href="index.html#contact" class="nav-cta">Book Now</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="about-us.html" onclick="toggleMenu()">About Us</a>
+  <a href="services.html" onclick="toggleMenu()">Services</a>
+  <a href="aircraft.html" onclick="toggleMenu()">Aircraft</a>
+  <a href="skygloss.html" onclick="toggleMenu()" style="color:rgba(126,184,255,0.85)">SkyGloss Fusion ✦</a>
+  <a href="reviews.html" onclick="toggleMenu()">Reviews</a>
+  <a href="gallery.html" onclick="toggleMenu()">Past Work</a>
+  <a href="faq.html" onclick="toggleMenu()">FAQ</a>
+  <a href="blog.html" onclick="toggleMenu()">Blog</a>
+  <a href="index.html#contact" class="mobile-cta" onclick="toggleMenu()">Book Now</a>
+</div>
+<div class="page-header">
+  <div class="page-header-bg"></div>
+  <div class="page-header-content">
+    <div class="page-eyebrow">Premium Mobile Detailing</div>
+    <h1 class="page-title">Our<br><em>Services</em></h1>
+  </div>
+</div>
+<section class="services-section">
+  <div class="services-header">
+    <div>
+      <div class="section-label">What We Offer</div>
+      <h2 class="section-title">Every Service. Perfected.</h2>
+      <p class="section-sub">From a full interior & exterior detail to premium ceramic coating — every job is done right, never rushed.</p>
+    </div>
+    <a href="index.html#contact" class="btn-primary">Get a Free Quote →</a>
+  </div>
+  <div class="services-tabs">
+    <button class="tab-btn active" onclick="switchTab('automotive', this)">Automotive</button>
+    <button class="tab-btn" onclick="switchTab('protection', this)">Paint Protection</button>
+  </div>
+  <div id="tab-automotive" class="service-panel active">
+    <div class="service-card"><span class="service-icon">🧹</span><div class="service-name">Interior & Exterior Detailing</div><div class="service-desc">Complete inside-and-out treatment. Dash, vinyl, leather, windows vacuumed and UV protected.</div><a href="index.html#contact" class="service-link">Book This →</a></div>
+    <div class="service-card"><span class="service-icon">🏆</span><div class="service-name">Gold & Platinum Detailing</div><div class="service-desc">Our premium full treatment. Unmatched shine, enhanced protection, luxurious interior refresh.</div><a href="index.html#contact" class="service-link">Book This →</a></div>
+    <div class="service-card" style="padding-top:52px"><div class="service-badge">Most Popular</div><span class="service-icon">💎</span><div class="service-name">Pre-Sale Detailing</div><div class="service-desc">Maximise your vehicle's appeal and resale value before you sell. First impressions matter.</div><a href="index.html#contact" class="service-link">Book This →</a></div>
+    <div class="service-card"><span class="service-icon">🔧</span><div class="service-name">Cut Polish & Paint Correction</div><div class="service-desc">Advanced techniques to eliminate swirls, scratches and imperfections. Restore that showroom finish.</div><a href="index.html#contact" class="service-link">Book This →</a></div>
+    <div class="service-card"><span class="service-icon">🚤</span><div class="service-name">Boat & Marine Detailing</div><div class="service-desc">Specialist marine detailing — protecting your vessel from UV, salt and the elements.</div><a href="index.html#contact" class="service-link">Book This →</a></div>
+    <div class="service-card"><span class="service-icon">🏍️</span><div class="service-name">Motorcycle Detailing</div><div class="service-desc">Precision detailing for bikes. Every surface cleaned, protected and restored to perfection.</div><a href="index.html#contact" class="service-link">Book This →</a></div>
+  </div>
+  <div id="tab-protection" class="service-panel">
+    <div class="service-card"><span class="service-icon">🛡️</span><div class="service-name">SkyGloss Fusion</div><div class="service-desc">Revolutionary wipe-on 2K clear coat restoration. Build your clear coat back up instead of cutting it away.</div><div class="service-price">From $1,500</div><a href="index.html#contact" class="service-link">Book This →</a></div>
+    <div class="service-card"><span class="service-icon">⚗️</span><div class="service-name">Ceramic Coating</div><div class="service-desc">Long-lasting hydrophobic protection. Easier to clean, enhanced gloss, up to 2 year warranty available.</div><div class="service-price">From $1,500</div><a href="index.html#contact" class="service-link">Book This →</a></div>
+    <div class="service-card"><span class="service-icon">✨</span><div class="service-name">Luminous X Borophene</div><div class="service-desc">Cutting-edge Borophene coating technology. Immense gloss and long-lasting durability.</div><div class="service-price">From $1,500</div><a href="index.html#contact" class="service-link">Book This →</a></div>
+  </div>
+</section>
+<section class="usp-section">
+  <div class="usp-grid">
+    <div class="usp-item"><div class="usp-icon">📍</div><div><div class="usp-title">We Come to You</div><div class="usp-text">No trips, no waiting. Mobile service across North Brisbane.</div></div></div>
+    <div class="usp-item"><div class="usp-icon">⏱️</div><div><div class="usp-title">Never Rushed</div><div class="usp-text">Every vehicle detailed with precision. Quality over quantity.</div></div></div>
+    <div class="usp-item"><div class="usp-icon">🌿</div><div><div class="usp-title">Eco-Friendly Products</div><div class="usp-text">Effective, environmentally conscious solutions on every job.</div></div></div>
+    <div class="usp-item"><div class="usp-icon">✅</div><div><div class="usp-title">Satisfaction Guaranteed</div><div class="usp-text">A Prestige service every time. If you're not happy, we'll make it right.</div></div></div>
+  </div>
+</section>
+<div class="cta-band">
+  <h2>Not Sure Which<br><em>Service You Need?</em></h2>
+  <p>Get in touch and we'll recommend the best option for your vehicle and budget.</p>
+  <a href="index.html#contact" class="btn-primary">Get a Free Quote →</a>
+</div>
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="index.html" class="nav-logo"><img src="images/logo.jpg" alt="Prestige" style="height:64px"></a>
+      <p class="footer-brand-desc">Premium mobile detailing for cars and aircraft across North Brisbane. 6+ years experience. We come to you.</p>
+      <div class="social-links">
+        <a href="https://www.facebook.com/Prestigecardetailingqld" class="social-link" target="_blank">f</a>
+        <a href="https://www.instagram.com/prestigedetailingqld/" class="social-link" target="_blank">in</a>
+      </div>
+    </div>
+    <div><div class="footer-col-title">Services</div><ul class="footer-links"><li><a href="services.html">Interior & Exterior</a></li><li><a href="services.html">Gold & Platinum</a></li><li><a href="services.html">Paint Correction</a></li><li><a href="services.html">Ceramic Coating</a></li><li><a href="services.html">SkyGloss Fusion</a></li><li><a href="aircraft.html">Aircraft Detailing</a></li></ul></div>
+    <div><div class="footer-col-title">Pages</div><ul class="footer-links"><li><a href="about-us.html">About Us</a></li><li><a href="reviews.html">Reviews</a></li><li><a href="gallery.html">Past Work</a></li><li><a href="faq.html">FAQ</a></li><li><a href="blog.html">Blog</a></li><li><a href="skygloss.html">SkyGloss Fusion</a></li><li><a href="index.html#contact">Contact</a></li></ul></div>
+    <div><div class="footer-col-title">Contact</div><ul class="footer-links"><li><a href="tel:+61437477199">+61 437 477 199</a></li><li><a href="mailto:prestigecaraircraftdetailing@gmail.com">Email Us</a></li><li><a href="#">Mon–Sat 9am–6pm</a></li><li><a href="#">North Brisbane, QLD</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Prestige Car & Aircraft Detailing. All rights reserved.</div>
+    <div class="footer-tagline">A Prestige Service Everytime</div>
+  </div>
+</footer>
+<script>
+  window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>30)});
+  function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open')}
+  function switchTab(id,btn){document.querySelectorAll('.service-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');btn.classList.add('active')}
+</script>
+</body>
+</html>
